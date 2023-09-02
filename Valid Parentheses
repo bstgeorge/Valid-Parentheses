@@ -1,0 +1,19 @@
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isValid = function(s) {
+  //base case
+  if (s.length === 0) {
+    return true;
+  }
+  let startLength = s.length;
+  s = s.split('()').join('');
+  s = s.split('[]').join('');
+  s = s.split('{}').join('');
+  
+  if (s.length === startLength) {
+    return false;
+  }
+  return isValid(s);
+}; 
